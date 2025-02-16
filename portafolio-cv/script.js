@@ -8,14 +8,46 @@
         $btnMenu.lastElementChild.classList.toggle('none');
         $menu.classList.toggle('is-active')
     });
-    /** cerra menu en cuanto sea pres       ionado */
+    /** cerra menu en cuanto sea presionado */
     d.addEventListener('click', (e) => {
         if (!e.target.matches('.menu a')) return false;
         $btnMenu.firstElementChild.classList.remove('none');
         $btnMenu.lastElementChild.classList.add('none');
         $menu.classList.remove('is-active')
     });
+
+
 })(document);
+
+((d) => {
+    const $btnMenuu = d.querySelector('.menuu-btn'),
+        $menuu = d.querySelector('.menuu'),
+        $boton = d.querySelector(".peo"),
+        $botonTow = d.querySelector(".rr");
+    /** agregar clases para efectos se abre  */
+    $btnMenuu.addEventListener('click', (e) => {
+        $btnMenuu.firstElementChild.classList.toggle('none');
+        $btnMenuu.lastElementChild.classList.toggle('none');
+        $menuu.classList.toggle('is-active')
+    });
+    /** cerra menu en cuanto sea pres       ionado */
+    d.addEventListener('click', (e) => {
+        if (!e.target.matches('.menu a')) return false;
+        $btnMenuu.firstElementChild.classList.remove('none');
+        $btnMenuu.lastElementChild.classList.add('none');
+        $menuu.classList.remove('is-active')
+    });
+
+    
+    d.addEventListener('click', (e) =>{
+        if(e.target.matches('.peo')){
+            $menuu.classList.remove('is-active')
+        }
+    });
+
+
+})(document);
+
 
 //ContactForm 
 
