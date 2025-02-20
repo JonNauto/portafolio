@@ -105,87 +105,6 @@ p {
     line-height: 1.6;
 }
 
-/* Componentes */
-
-/*                       Carousel              */
-/* Animacion carousel sin interaccion */
-@keyframes carousel-slide {
-    0% {
-        transform: translateX(0%);
-    }
-
-    25% {
-        transform: translateX(-25%);
-    }
-
-    50% {
-        transform: translateX(-50%);
-    }
-
-    75% {
-        transform: translateX(-75%);
-    }
-}
-
-.carousel {
-    margin: 2rem auto;
-    padding: 2rem 0;
-    max-width: 800px;
-    text-align: center;
-    /*Eliminar carta lateral*/
-    overflow-x: hidden;
-    background-color: var(--carousel-bg-color);
-}
-
-.carousel input {
-    display: none;
-}
-
-/* Animacion carusel  por cada slide que tenga hay que sumar 100%*/
-.carousel .slides {
-    padding-left: 0;
-    width: 400%;
-    display: flex;
-    list-style: none;
-    transition: transform .5s ease-in-out;
-    animation: carousel-slide 12s ease-in-out 3s;
-}
-
-.carousel label {
-    border: medium solid var(--gray-dark-color);
-    border-radius: 50%;
-    margin: 0 .25rem;
-    display: inline-block;
-    width: .75rem;
-    height: .75rem;
-    cursor: pointer;
-}
-
-/* Mover mis clientes  se divide entre la cantidad de tarjetas*/
-#slide-1:checked~.slides {
-    transform: translateX(0%);
-}
-
-#slide-2:checked~.slides {
-    transform: translateX(-25%);
-}
-
-#slide-3:checked~.slides {
-    transform: translateX(-50%);
-}
-
-#slide-4:checked~.slides {
-    transform: translateX(-75%);
-}
-
-/*Checked*/
-#slide-1:checked~.slides-nav label#dot-1,
-#slide-2:checked~.slides-nav label#dot-2,
-#slide-3:checked~.slides-nav label#dot-3,
-#slide-4:checked~.slides-nav label#dot-4 {
-    background-color: var(--gray-dark-color);
-}
-
 /* Contact Form */
 
 .contact-form {
@@ -274,35 +193,16 @@ p {
     fill: var(--first-color);
 }
 
-/* Hero Image*/
-.hero-image {
-    background-image: var(--hero-image);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: var(--hero-attachment);
-}
-
-.hero-image-opacity {
-    width: 100%;
-    min-height: 100vh;
+.fr{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: var(--hero-opacity-color);
-}
-
-.hero-image-title {
-    /*Font-size dinamico responsivo */
-    font-size: 7.5vw;
-    color: var(--hero-text-color);
+    align-content: space-between;
 }
 
 /* Menu */
 /*al dar fixed pierdes variables de width y height*/
 .menu {
-    position: fixed;
+    display: flex;
+    align-items: center;
     left: 0;
     bottom: var(--header-height);
     width: 100%;
@@ -312,9 +212,12 @@ p {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    align-content: space-between;
+    justify-content: space-between;
+    padding: 0 50px; /* Separa los elementos */
+
+    
 }
-
-
 
 
 .menu.is-active {
@@ -384,6 +287,9 @@ p {
     outline: thin solid var(--first-color);
     border: 0;
     cursor: pointer;
+    position: absolute;
+    top: 30px; /* Ajusta la distancia desde la parte superior */
+    right: 15px; /* Lo coloca a la derecha */
 }
 
 /*Rellena lineas interiores boton*/
@@ -782,7 +688,7 @@ progress::-moz-progress-bar {
     color: var(--first-color)
 }
 
-.centro{
+.cener{
     text-align: left; 
 }
 
@@ -793,8 +699,8 @@ progress::-moz-progress-bar {
 }
 
 .foto{
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
 
@@ -863,9 +769,10 @@ progress::-moz-progress-bar {
 
 }
 
-.ajustar{
+.ajust-flex{
     display: flex;
 }
+
 
 .xd{
     margin-left: 10px;
@@ -889,9 +796,64 @@ figcaption {
     height: 30px;
 }
 
+.card-containerx{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 20px;
+}
+
+.cardx{
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgb(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.6 ease;
+   
+}
+.cardx:hover{
+   transform: translateY(-20px);
+}
+
+.cardx img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-contentx{
+    padding: 20px;
+}
+
+.card-contentx h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-contentx p{
+    font-size:  15px;
+    color: #666;
+    margin-bottom: 20px;
+
+}
+
+.card-buttonx{
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+
+
+
 /** tablet*/
 @media screen and (min-width: 768px) {
-
+    
     .oc{
         display: none;
     }
@@ -970,7 +932,7 @@ figcaption {
 
     .contact-cards {
         display: grid;
-        grid-template-columns: repeat(2, 48%);
+        grid-template-columns: repeat(3, 32%);
         justify-content: space-between;
     }
 
@@ -1011,8 +973,7 @@ figcaption {
 /** CEl*/
 @media screen and (max-width: 768px) {
 
-
-
+   
     .escon{
         display: none;
     }
@@ -1032,7 +993,7 @@ figcaption {
         margin: 3px;
     }
     .texto-portada{
-        font-size: 35px;
+        font-size: 30px;
     }
     
     
@@ -1045,7 +1006,7 @@ figcaption {
         text-align: center;
     }
 
-    .ff{
+    .redes-margin{
        padding-top: 20px;
     }
 
@@ -1066,7 +1027,7 @@ figcaption {
         color: var(--black-color);
       }
 
-    .esconderr{
+    .hide{
         display: none;
     }
 
@@ -1078,7 +1039,9 @@ figcaption {
 /*desktop*/
 @media screen and (min-width: 1024px) {
 
-
+    .redes-margin{
+        display: none;
+    }
 
     .no-va{
         display: flex;
@@ -1093,12 +1056,12 @@ figcaption {
         text-align: center;
         margin: 15px;
     }
-    .esconderr{
+    .hide{
         display: flex;
     }
     
     /*Posicion foto principal*/
-    .xx{
+    .prin-foto{
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -1112,7 +1075,7 @@ figcaption {
       display: none;
     }
 
-    .xx{
+    .prin-foto{
         align-content: left;
         
     }
@@ -1146,7 +1109,7 @@ figcaption {
     }
 
     .contact-cards {
-        grid-template-columns: repeat(4, 24%);
+        grid-template-columns: repeat(3, 32%);
     }
 
     .header {
@@ -1161,7 +1124,7 @@ figcaption {
     }
 
     .portfolio .section-title {
-        grid-column: span 3;
+        grid-column: span 4;
     }
 
     
